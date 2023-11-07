@@ -8,7 +8,7 @@ def test_train():
         batch_size=5, # low bs to fit on CPU if needed
         augment=True, # use data augmentation
         epochs=1,
-        lr=2e-3,
+        lr=1e-3,
         pretrained=True,  # whether to use pretrained encoder,
         mixed_precision=True, # use automatic mixed precision
         arch="resnet18",
