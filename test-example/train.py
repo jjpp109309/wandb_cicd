@@ -1,5 +1,6 @@
 ## This script comes from 04_refactor_baseline.ipynb
 
+
 import argparse, os
 import wandb
 from pathlib import Path
@@ -95,7 +96,7 @@ def final_metrics(learn):
 
 def train(config, nrows=None):
     set_seed(config.seed)
-    run = wandb.init(project=params.WANDB_PROJECT, entity=params.ENTITY, job_type="training", config=config)
+    run = wandb.init(project=params.WANDB_PROJECT, job_type="training", config=config)
         
     # good practice to inject params using sweeps
     config = wandb.config

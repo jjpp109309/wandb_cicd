@@ -1,0 +1,31 @@
+name: ghapi
+on: pull_request
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  ghapi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: insntall dependencies
+        run: pip isntall ghapi
+
+      - name: Make a commet
+        shell: python
+        run: |
+          import os
+          from ghapi.core import Ghapi
+
+          owner, repo = os.environ['REPO'].split('/')
+          number = os.environ['NUMBER']
+
+          api = GhApi(owner=owner, repo=repo)
+          api.issues.create_comment(number, "Hi! I'm making a comment from a GH Action!")
+
+        env:
+          NUMBER: ${{ github.event.number }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
