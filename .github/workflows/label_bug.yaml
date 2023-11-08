@@ -1,0 +1,6 @@
+on: issue_comment
+
+jobs:
+  pr_commented:
+    name: Lable BUG
+    if: ${{ github.event.issue.pull_request && github.event.issue. }}
