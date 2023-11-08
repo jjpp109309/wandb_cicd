@@ -17,7 +17,7 @@ jobs:
         shell: python
         run: |
           import os
-          from ghapi.core import Ghapi
+          from ghapi.core import GhApi
 
           owner, repo = os.environ['REPO'].split('/')
           number = os.environ['NUMBER']
