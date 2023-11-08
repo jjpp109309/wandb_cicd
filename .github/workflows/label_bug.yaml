@@ -1,3 +1,4 @@
+name: label bug
 on: issue_comment
 
 permissions:
