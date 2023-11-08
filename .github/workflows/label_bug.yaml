@@ -1,6 +1,25 @@
 on: issue_comment
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   pr_commented:
-    name: Lable BUG
-    if: ${{ github.event.issue.pull_request && github.event.issue. }}
+    if: ${{ contains(github.event.comment.body, '/bug') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: insntall dependencies
+        run: pip install ghapi
+
+      - name: Make a commet
+        run: python .github/scripts/add_label.py
+
+        env:
+          NUMBER: ${{ github.event.number }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+    
