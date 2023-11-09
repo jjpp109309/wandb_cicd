@@ -238,7 +238,7 @@ dependencies:
     - tqdm==4.64.1
     - traitlets==5.5.0
     - typer==0.7.0
-    - wandb==0.13.5
+    - wandb==0.16.0
     - wasabi==0.10.1
     - wcwidth==0.2.5
     - webencodings==0.5.1
